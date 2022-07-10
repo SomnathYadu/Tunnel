@@ -2,59 +2,81 @@ package com.tunnel.entity;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.tunnel.exceptions.*;
+import net.minidev.json.annotate.JsonIgnore;
 
 @Entity
-@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
+@Embeddable
+@Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username", "mobile_number", "email"})})
 public class User {
 	
 	@Id
-//	@SequenceGenerator(name = "user_id_gen", sequenceName = "user_id_seq", allocationSize=1)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@Column(name = "user_id")
+	private Long userId;
 	
-	@Size(min=4, message="Username should be atleast four characters")
+	@Size(min=4, max = 15, message="Username should be more than 4 or less than 15 character")
 	@Column(name = "username")
 	private String username;
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	@Size(min=6, max = 20, message = "password should be more than 6 or less than 20 character")
+	@Column(name = "password")
+	@JsonIgnore
+	private String password;
+
+	@OneToMany(mappedBy = "user")
+	private Set<Post> posts;
+
+	@Size(min=1, message="First name should be at-least one characters")
+	@Column(name = "first_name")
+	private String firstName;
 	
-	@Size(min=1, message="First name should be atleast one characters")
-	@Column(name = "firt_name")
-	private String firtName;
-	
-	@Size(min=1, message="Last name should be atleast one characters")
+	@Size(min=1, message="Last name should be at-least one characters")
 	@Column(name = "last_name")
 	private String lastName;
 	
 	@Past(message="Date of birth should be in past")
 	@Column(name = "dob")
 	private LocalDate dob;
+
+	@Column(name = "created_date")
+	private LocalDate createDate;
 	
 	@Column(name = "mobile_number")
 	private Long mobileNumber;
 	
 	@Column(name = "age")
 	private Integer age;
+
 	@Column(name = "email")
 	private String email;
 
-	public User () {};
+	@OneToOne(mappedBy = "user")
+	private UserRole userRole;
+
+	public UserRole getUserRole() {
+		return userRole;
+	}
+
+	public User () {
+		this.createDate = LocalDate.now();
+	};
 	
-	public User(String username, String firtName, String lastName, LocalDate dob, Long mobileNumber, String email) {
+	public User(String username, String firstName, String lastName, LocalDate dob, Long mobileNumber, String email) {
 		super();
 		this.username = username;
-		this.firtName = firtName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.setDob(dob);
 		if(this.age < 18) {
@@ -62,6 +84,7 @@ public class User {
 		} else if(this.age > 100) {
 			throw new AgeValidateionException("Are you really that old!");
 		}
+		this.createDate = LocalDate.now();
 		this.mobileNumber = mobileNumber;
 		this.email = email;
 	}
@@ -69,7 +92,7 @@ public class User {
 	public User(@Valid User user) {
 		super();
 		this.username = user.username;
-		this.firtName = user.firtName;
+		this.firstName = user.firstName;
 		this.lastName = user.lastName;
 		//verifying the age of user
 		//which should be above 18
@@ -79,22 +102,23 @@ public class User {
 		} else if(this.age > 100) {
 			throw new AgeValidateionException("Are you really that old!");
 		}
+		this.createDate = user.createDate;
 		this.mobileNumber = user.mobileNumber;
 		this.email = user.email;
 	}
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", firtName=" + firtName + ", lastName=" + lastName + ", dob=" + dob
+		return "User [id=" + userId + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName + ", dob=" + dob
 				+ ", mobileNumber=" + mobileNumber + ", age=" + age + ", email=" + email + "]";
 	}
 
-	public String getFirtName() {
-		return firtName;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setFirtName(String firtName) {
-		this.firtName = firtName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -132,8 +156,8 @@ public class User {
 		this.email = email;
 	}
 
-	public Long getId() {
-		return id;
+	public Long getUserId() {
+		return userId;
 	}
 
 	public Integer getAge() {
@@ -147,5 +171,12 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	
+
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
 }

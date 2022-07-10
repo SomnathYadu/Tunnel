@@ -9,10 +9,10 @@ import com.tunnel.entity.Post;
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 	// INFO:: Using native MYSQL query
-	@Query(value = "SELECT * FROM post WHERE owner = ?1", nativeQuery = true)
-	List<Post> getByOwner(String owner);
+	@Query(value = "SELECT * FROM post WHERE owner_username = ?1", nativeQuery = true)
+	List<Post> getByOwner(Long ownerId);
 
 	// INFO:: Using native MYSQL query
-	@Query(value = "SELECT * FROM post WHERE owner = ?1 AND id = ?2", nativeQuery = true)
-	Post getPostById(String owner, Long postId);
+	@Query(value = "SELECT * FROM post WHERE user = ?1 AND id = ?2", nativeQuery = true)
+	Post getPostById(Long user, Long postId);
 }

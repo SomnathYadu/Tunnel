@@ -1,10 +1,10 @@
 package com.tunnel.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
 
+import com.tunnel.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -18,33 +18,38 @@ public class PostService {
 	@Autowired
 	public PostRepository postRepository;
 
-	public Post createPost(Post post) {
-		postRepository.save(post);
-		return post;
+	@Autowired
+	private UserService userService;
+
+	public Post createPost(String username, Post post) {
+		User postOwner = userService.findByUserName(username);
+		Post generatedPost = new Post(postOwner, post);
+		return postRepository.save(generatedPost);
 	}
 
-	public Post deletePost(String owner, Long postId) {
-		
-		Post post = this.getPost(owner, postId);
+	public Post deletePost(Long user, Long postId) {
+		Post post = this.getPost(user, postId);
 		if(post == null) {
-			throw new UserDoesNotOwnPostException("User " + owner + " does not own post " + postId);
+			throw new UserDoesNotOwnPostException("User " + user + " does not own post " + postId);
 		}
 		postRepository.delete(post);
 		return post;
 	}
 	
-	public Post getPost(String owner, Long postId) {
-		Post post = postRepository.getPostById(owner, postId);
+	public Post getPost(Long user, Long postId) {
+		Post post = postRepository.getPostById(user, postId);
 		return post;
 	}
 
-	public List<Post> getAllPost() {
+	public List<Post> getOwnersAllPost() {
 		List<Post> posts = postRepository.findAll();
 		return posts;
 	}
 
-	public List<Post> getAllPost(String username) {
-		List<Post> posts = postRepository.getByOwner(username);
+	public List<Post> getOwnersAllPost(String username) {
+		User user = userService.getUserByUserName(username);
+
+		List<Post> posts = postRepository.getByOwner(user.getUserId());
 		if (posts == null || posts.size() == 0) {
 			throw new UserDoesNotOwnPostException("User " + username + " does not own any post");
 		}
