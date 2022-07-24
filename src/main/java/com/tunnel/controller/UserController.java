@@ -15,12 +15,7 @@ import org.springframework.hateoas.EntityModel;
 import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.tunnel.entity.AgeComparator;
@@ -49,11 +44,19 @@ public class UserController {
 
 	@PostMapping(path = "/users/update")
 	public Optional<User> updateUser(@RequestBody User user) {
-		Optional<User> response = service.updateUser(user);
-		if (response == null) {
+		User verifiedUser = new User(user);
+		Optional<User> response = service.updateUser(verifiedUser);
+		if (response.isEmpty()) {
 			// TODO:: return 404 not found
 			return null;
 		}
+
+		return response;
+	}
+
+	@PostMapping(path = "/users/update/password/{password}")
+	public User updateUserPassword(@RequestBody User user, @RequestParam String password) {
+		User response = service.updateUserPassword(password, user.getUsername());
 
 		return response;
 	}

@@ -1,11 +1,11 @@
-package com.tunnel.service;
+package com.tunnel.repository;
 
+import com.tunnel.entity.Post;
 import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-import com.tunnel.entity.Post;
+
 
 public interface PostRepository extends JpaRepository<Post, Long> {
 	// INFO:: Using native MYSQL query

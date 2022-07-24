@@ -22,15 +22,11 @@ public class User {
 	@Column(name = "user_id")
 	private Long userId;
 	
-	@Size(min=4, max = 15, message="Username should be more than 4 or less than 15 character")
+	@Size(min=4, max = 15, message="Username should be more than 4 and less than 15 character")
 	@Column(name = "username")
 	private String username;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	@Size(min=6, max = 20, message = "password should be more than 6 or less than 20 character")
+	@Size(min=6, max = 20, message = "password should be more than 6 and less than 20 character")
 	@Column(name = "password")
 	@JsonIgnore
 	private String password;
@@ -62,11 +58,16 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
-	@OneToOne(mappedBy = "user")
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "userRoleId")
 	private UserRole userRole;
 
 	public UserRole getUserRole() {
 		return userRole;
+	}
+
+	public void setUserRole(UserRole userRole) {
+		this.userRole = userRole;
 	}
 
 	public User () {
@@ -98,13 +99,14 @@ public class User {
 		//which should be above 18
 		this.setDob(user.dob);
 		if(this.age < 18) {
-			throw new AgeValidateionException("User should be atleast 18 years old");
+			throw new AgeValidateionException("User should be at-least 18 years old");
 		} else if(this.age > 100) {
 			throw new AgeValidateionException("Are you really that old!");
 		}
 		this.createDate = user.createDate;
 		this.mobileNumber = user.mobileNumber;
 		this.email = user.email;
+		this.setPassword(user.password);
 	}
 
 	@Override
@@ -178,5 +180,9 @@ public class User {
 
 	public void setCreateDate(LocalDate createDate) {
 		this.createDate = createDate;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

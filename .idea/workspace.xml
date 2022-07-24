@@ -4,31 +4,55 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fe7cdd09-2bfc-4c5f-8e44-076beed3da0c" name="Changes" comment="Imported to IntelliJIDEA">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRoleId.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/messages_fr.properties" afterDir="false" />
+    <list default="true" id="fe7cdd09-2bfc-4c5f-8e44-076beed3da0c" name="Changes" comment="added spring security">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/WebMvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserRolesController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/PostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/PostController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Post.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Post.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/MvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/WebSecurityConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRoleId.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/PostRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/TunnelApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/TunnelApplication.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/PostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/entity/Post.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/entity/Post.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/entity/AgeComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/entity/AgeComparator.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/AgeValidateionException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/AgeValidateionException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/ExceptionResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/ExceptionResponse.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserDoesNotOwnPostException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserDoesNotOwnPostException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNameAlreadyExistsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNameAlreadyExistsException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNotFoundException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tunnel.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/type/MediaType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/type/MediaType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/type/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/type/Type.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/hello.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/tunnel/wanderer/tunnel/TunnelApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tunnel/wanderer/tunnel/TunnelApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +62,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -89,6 +115,10 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\D3vL0P3r\SpringBoot\tunnel\src\main\resources" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\D3vL0P3r\SpringBoot\tunnel\src\main\resources\templates" />
+      <recent name="E:\D3vL0P3r\SpringBoot\tunnel\src\main\resources\templates\template" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="TunnelApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -137,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655402384192</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added spring security">
+      <created>1657473653453</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657473653453</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,6 +190,43 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Imported to IntelliJIDEA" />
-    <option name="LAST_COMMIT_MESSAGE" value="Imported to IntelliJIDEA" />
+    <MESSAGE value="added spring security" />
+    <option name="LAST_COMMIT_MESSAGE" value="added spring security" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

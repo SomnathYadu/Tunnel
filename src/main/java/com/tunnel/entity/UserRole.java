@@ -1,44 +1,47 @@
 package com.tunnel.entity;
 
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 @Entity
-@Table(name="user_role", uniqueConstraints = {@UniqueConstraint(columnNames = {"username"})})
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+@Table(name="user_role")
 public class UserRole {
 
-    @EmbeddedId
-    private UserRoleId userRoleId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long userRoleId;
 
-    @OneToOne
-    @JoinColumn(name = "username")
+    @JsonIgnore
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "userRole")
     private User user;
 
-    @ManyToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userRole")
     private Role role;
 
     public UserRole() {
     }
 
-    public UserRole(UserRoleId userRoleId, User user, Role role) {
-        this.userRoleId = userRoleId;
+    public UserRole(User user, Role role) {
         this.user = user;
         this.role = role;
-    }
-
-    public UserRoleId getUserRoleId() {
-        return userRoleId;
     }
 
     public User getUser() {
         return user;
     }
 
-    public Role getRole() {
-        return role;
+    public Long getUserRoleId() {
+        return userRoleId;
     }
 
-    public void setUserRoleId(UserRoleId userRoleId) {
-        this.userRoleId = userRoleId;
+    public Role getRole() {
+        return role;
     }
 
     public void setUser(User user) {

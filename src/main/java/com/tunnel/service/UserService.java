@@ -7,7 +7,11 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
+import com.tunnel.entity.Role;
+import com.tunnel.entity.UserRole;
 import com.tunnel.exceptions.UserNotFoundException;
+import com.tunnel.repository.RoleRepository;
+import com.tunnel.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +31,27 @@ public class UserService {
 	@Autowired
 	UserRepository userRepository;
 
+	@Autowired
+	RoleRepository roleRepository;
+
 	Logger logger = LoggerFactory.getLogger("SampleLogger");
 	
 	public User createUser(User user) throws UserNameAlreadyExistsException {
 		//Check if "username" is already existing and throw error if it doesn't
+
 		List<User> users = userRepository.findByUserName(user.getUsername());
+
 		if (users != null && users.size() > 0) {
 			throw new UserNameAlreadyExistsException("Username "+ user.getUsername() + " already exist");
 		}
+
+		Role role = roleRepository.findByRoleName("SITE_USER").get(0);
+
+		UserRole userRole = new UserRole();
+		userRole.setUser(user);
+		userRole.setRole(role);
+
+		user.setUserRole(userRole);
 
 		return userRepository.save(user);
 	}
@@ -56,13 +73,25 @@ public class UserService {
 		return users.get(0);
 	}
 
-	public Optional<User> updateUser(User userUpdate) {
-		Optional<User> user = userRepository.findById(userUpdate.getUserId());
-		if (user == null) {
-			return user;
+	public Optional<User> updateUser(User user) {
+		Optional<User> users = userRepository.findById(user.getUserId());
+		if (users.isEmpty()) {
+			throw new UserNotFoundException("Username "+ user.getUsername() + " already exist");
 		}
 
-		userRepository.save(userUpdate);
+		userRepository.save(users.get());
+		return users;
+	}
+
+	public User updateUserPassword(String password, String username) {
+		List<User> users = userRepository.findByUserName(username);
+		if (users == null || users.isEmpty()) {
+			throw new UserNotFoundException("Username "+ username + " already exist");
+		}
+
+		User user = users.get(0);
+		user.setPassword(password);
+		userRepository.save(user);
 		return user;
 	}
 

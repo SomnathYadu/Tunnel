@@ -22,7 +22,7 @@ public class CustomizedResponseEntityExceptionMessage extends ResponseEntityExce
 
 	@ExceptionHandler(Exception.class)
 	public final ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) throws Exception {
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "S001", ex.getMessage(),
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "500", ex.getMessage(),
 				request.getDescription(false));
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.INTERNAL_SERVER_ERROR);
 	}
