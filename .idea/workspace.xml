@@ -5,35 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fe7cdd09-2bfc-4c5f-8e44-076beed3da0c" name="Changes" comment="added spring security">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/WebMvcConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserRolesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/RoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRoleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/AuthUserDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/AuthUserDetailsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/MvcConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/WebSecurityConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/WebMvcConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/Role.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/entity/UserRoleId.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/PostRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/PostService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/repository/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/hello.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/webpage/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/TunnelApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/TunnelApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/CustomizedResponseEntityExceptionMessage.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/PostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/PostController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/entity/AgeComparator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/entity/AgeComparator.class" afterDir="false" />
@@ -43,15 +31,10 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserDoesNotOwnPostException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserDoesNotOwnPostException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNameAlreadyExistsException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNameAlreadyExistsException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/exceptions/UserNotFoundException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/service/PostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserRepository.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/service/UserService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/type/MediaType.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/type/MediaType.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/tunnel/type/Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tunnel/type/Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/hello.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/home.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/webpage/login.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/com/tunnel/wanderer/tunnel/TunnelApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/tunnel/wanderer/tunnel/TunnelApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,8 +46,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -81,8 +64,8 @@
     </option>
     <option name="myId2Visible">
       <map>
-        <entry key="com.haulmont.jpb.jpaInspector" value="true" />
-        <entry key="com.haulmont.jpb.jpaPalette" value="true" />
+        <entry key="com.haulmont.jpb.jpaInspector" value="false" />
+        <entry key="com.haulmont.jpb.jpaPalette" value="false" />
         <entry key="com.haulmont.jpb.jpaStructure" value="false" />
       </map>
     </option>
@@ -174,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657473653453</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added spring security">
+      <created>1658669057055</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1658669057055</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -197,36 +187,42 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>88</line>
-          <option name="timeStamp" value="5" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/controller/AuthenticationController.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>91</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/UserService.java</url>
-          <line>93</line>
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/service/AuthUserDetailsService.java</url>
+          <line>43</line>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/tunnel/SecurityConfiguration.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="11" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="com.tunnel.entity.User" memberName="userRole" />
+        <PinnedItemInfo parentTag="com.tunnel.entity.UserRole$HibernateProxy$48JcVXYq" memberName="role" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="user.value.firstName" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

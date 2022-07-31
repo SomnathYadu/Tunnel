@@ -8,6 +8,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import com.tunnel.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,9 @@ public class UserController {
 
 	@Autowired
 	private UserService service;
+
+	@Autowired
+	UserRepository userRepository;
 
 	Logger logger = LoggerFactory.getLogger("SampleLogger");
 
@@ -92,5 +96,11 @@ public class UserController {
 		
 		entityModel.add(linkToUsers.withRel("all-users"));
 		return entityModel;
+	}
+
+	@GetMapping(path = "/test")
+	public Object getUserById() {
+		return userRepository.getRoleName("wanda");
+//		return q;
 	}
 }

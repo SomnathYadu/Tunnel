@@ -1,5 +1,6 @@
 package com.tunnel.entity;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Set;
@@ -15,7 +16,7 @@ import net.minidev.json.annotate.JsonIgnore;
 @Entity
 @Embeddable
 @Table(name = "users", uniqueConstraints = {@UniqueConstraint(columnNames = {"username", "mobile_number", "email"})})
-public class User {
+public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,9 @@ public class User {
 	@Column(name = "password")
 	@JsonIgnore
 	private String password;
+
+	@Column(name = "active")
+	private boolean active;
 
 	@OneToMany(mappedBy = "user")
 	private Set<Post> posts;
@@ -58,8 +62,16 @@ public class User {
 	@Column(name = "email")
 	private String email;
 
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+
 	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "userRoleId")
+	@JoinColumn(name = "userRoleId", referencedColumnName = "userRoleId")
 	private UserRole userRole;
 
 	public UserRole getUserRole() {
@@ -74,9 +86,10 @@ public class User {
 		this.createDate = LocalDate.now();
 	};
 	
-	public User(String username, String firstName, String lastName, LocalDate dob, Long mobileNumber, String email) {
+	public User(String username,Boolean active, String firstName, String lastName, LocalDate dob, Long mobileNumber, String email) {
 		super();
 		this.username = username;
+		this.active = active;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.setDob(dob);
@@ -93,6 +106,7 @@ public class User {
 	public User(@Valid User user) {
 		super();
 		this.username = user.username;
+		this.active = user.active;
 		this.firstName = user.firstName;
 		this.lastName = user.lastName;
 		//verifying the age of user
@@ -106,6 +120,8 @@ public class User {
 		this.createDate = user.createDate;
 		this.mobileNumber = user.mobileNumber;
 		this.email = user.email;
+		this.userRole = user.userRole;
+		this.posts = user.posts;
 		this.setPassword(user.password);
 	}
 
@@ -184,5 +200,22 @@ public class User {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	protected String getPassword(){
+		return password;
+	}
+
+	public String getRoleName(){
+		UserRole userRole = this.getUserRole();
+		Role role = userRole.getRole();
+		String roleName = role.getRoleName();
+		return roleName;
+	}
+
+	public Long getRoleId(){
+		UserRole userRole = this.getUserRole();
+
+		return userRole.getUserRoleId();
 	}
 }

@@ -5,11 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name="user_role")
-public class UserRole {
+public class UserRole implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,10 @@ public class UserRole {
     public UserRole(User user, Role role) {
         this.user = user;
         this.role = role;
+    }
+
+    public String getRoleName(){
+        return role.getRoleName();
     }
 
     public User getUser() {

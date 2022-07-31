@@ -23,7 +23,7 @@ public class PostService {
 	private UserService userService;
 
 	public Post createPost(String username, Post post) {
-		User postOwner = userService.findByUserName(username);
+		User postOwner = userService.getUserByUserName(username);
 		Post generatedPost = new Post(postOwner, post);
 		return postRepository.save(generatedPost);
 	}

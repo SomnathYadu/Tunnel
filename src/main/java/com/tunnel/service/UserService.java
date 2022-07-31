@@ -39,7 +39,7 @@ public class UserService {
 	public User createUser(User user) throws UserNameAlreadyExistsException {
 		//Check if "username" is already existing and throw error if it doesn't
 
-		List<User> users = userRepository.findByUserName(user.getUsername());
+		List<User> users = userRepository.getByUserName(user.getUsername());
 
 		if (users != null && users.size() > 0) {
 			throw new UserNameAlreadyExistsException("Username "+ user.getUsername() + " already exist");
@@ -65,7 +65,7 @@ public class UserService {
 	}
 
 	public User getUserByUserName(String username) {
-		List<User> users = userRepository.findByUserName(username);
+		List<User> users = userRepository.getByUserName(username);
 
 		if(users == null || users.size() == 0)
 			throw new UserNotFoundException("User does not exist");
@@ -84,7 +84,7 @@ public class UserService {
 	}
 
 	public User updateUserPassword(String password, String username) {
-		List<User> users = userRepository.findByUserName(username);
+		List<User> users = userRepository.getByUserName(username);
 		if (users == null || users.isEmpty()) {
 			throw new UserNotFoundException("Username "+ username + " already exist");
 		}
@@ -95,12 +95,10 @@ public class UserService {
 		return user;
 	}
 
-	public User findByUserName(String username) {
-		List<User> result = userRepository.findByUserName(username);
-		if(result.size() == 0)
-			throw new UserNotFoundException("User " + username + " does not exist");
-
-		User user = result.get(0);
+	public Optional<User> findByUserName(String username) {
+		List<User> u = userRepository.getByUserName(username);
+		Optional<User> user = Optional.ofNullable(u.get(0));
+		user.orElseThrow(() -> new UserNotFoundException("Not found "+username));
 		return user;
 	}
 }
